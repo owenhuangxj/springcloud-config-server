@@ -1,1 +1,24 @@
-profile:profile-default
+#https://gitee.com/login
+server:
+  port: 8060
+management:
+  security:
+    enabled: false
+spring: 
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/owenhuangxj/springcloud-config-server #远程仓库的地址，此示例使用的是github，springcloud的推荐远程仓库
+#          uri: https://gitee.com/owenHuangsir/config-repo-springcloud-configserver
+          basedir: d:\\basedir\ #设置从远程拉取的配置文件存储的本地的目录
+  application:
+    name: config-server
+#将自己注册到eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://owen:root@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
