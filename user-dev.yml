@@ -1,1 +1,17 @@
+server:
+  port: 8070
+management:
+  security:
+    enabled: false
+spring: 
+  application:
+    name: config-client-user
+#将自己注册到eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://owen:root@localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 env: dev
