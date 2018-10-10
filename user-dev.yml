@@ -6,6 +6,11 @@ management:
 spring: 
   application:
     name: config-client-user
+  rabbitmq:
+    host: localhost
+    username: owen 
+    password: root
+    port: 5672
 #将自己注册到eureka
 eureka:
   client:
